@@ -40,7 +40,7 @@ This is the location of all the character tables and the possible combinations.
 |33        | /              | /33         |
 
 
-## Alphabetical characters
+## Alphabetical characters (English)
 Remember that capital letters have a `c` before all the pluses
 | Key (ID) | Value (character) | Combination               |
 |----------|-------------------|---------------------------|
