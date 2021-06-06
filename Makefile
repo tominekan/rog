@@ -11,5 +11,5 @@ run: rog
 
 # Build and debugs with gdb
 debug: rog.c
-    gcc rog.c -g -o rog
+	gcc rog.c -g -o rog
 	./rog
