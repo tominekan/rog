@@ -38,7 +38,7 @@ This is the location of all the character tables and the possible combinations.
 |31        | .              | /31         |
 |32        | ?              | /32         |
 |33        | /              | /33         |
-
+|34        |\               | /34         |
 
 ## Alphabetical characters (English)
 Remember that capital letters have a `c` before all the pluses
@@ -85,4 +85,3 @@ Reme
 |7         |7                  |********     |
 |8         |8                  |*********    |
 |9         |9                  |**********   |
-|life      |42                 |(o0o)        |
