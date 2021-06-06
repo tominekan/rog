@@ -27,7 +27,7 @@ First, create the file, we'll call this `hello_world.rg`
 
 There are 26 letters in the English alphabet, _abcdefghijklmnopqrstuvwxyz_. Each letter has a corresponding number, for example, _a is to 1, b is to 2, c is to 3_ and so on. Think of it as a key to value pair, if the number _one_ is the **key**, then the letter _a_ is the **value**.
 
-We start from zero, zero is cool, `+` increments the key, `-` decrements the key ID.
+We start from zero, zero is cool, `+` increments the key ID.
 Therefore `++` is two, printing the letter `b`
 
 Now, what if you wanted capital letters, you decided that you were too cool for little letters. Then you would simply add `c` in front of the increment/decrement symbols.
