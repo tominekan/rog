@@ -2,6 +2,7 @@
 This is the location of all the character tables and the possible combinations.
 ,.?/
 ## Special characters
+There are 35 special characters (that I could find on my keyboard at least)
 | Key (ID) | Value (symbol) | Combination |
 |----------|----------------|-------------|
 |0         | (space)        | /0          |
@@ -15,10 +16,10 @@ This is the location of all the character tables and the possible combinations.
 |8         | %              | /8          |
 |9         | ^              | /9          |
 |10        | &              | /10         |
-|12        | (              | /12         |
-|13        | )              | /13         |
-|14        | `              | /14         |
-|11        | *              | /11         |
+|11        | (              | /12         |
+|12        | )              | /13         |
+|13        | `              | /14         |
+|14        | *              | /11         |
 |15        | _              | /15         |
 |16        | +              | /16         |
 |17        | -              | /17         |
@@ -40,8 +41,10 @@ This is the location of all the character tables and the possible combinations.
 |33        | /              | /33         |
 |34        |\               | /34         |
 
+
 ## Alphabetical characters (English)
-Remember that capital letters have a `c` before all the pluses
+There are 26 letters of the alphabet
+Remember that capital letters have a `c` before all the pluses.
 | Key (ID) | Value (character) | Combination               |
 |----------|-------------------|---------------------------|
 |1         |a                  |+                          |
@@ -72,7 +75,7 @@ Remember that capital letters have a `c` before all the pluses
 |26        |z                  |++++++++++++++++++++++++++ |
 
 ## Numerical characters
-Reme
+There are 10 possible numerical characters, from 0-9
 | Key (ID) | Value (character) | Combination |
 |----------|-------------------|-------------|
 |0         |0                  |*            |
