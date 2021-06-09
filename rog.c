@@ -1,4 +1,7 @@
-#define _GNU_SOURCE
+// TODO: implement command line parsing
+// TODO: implement testing
+// TODO: create a stable binary
+
 // Import stuff
 #include <stdio.h>
 #include <stdlib.h>
