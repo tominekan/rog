@@ -1,7 +1,7 @@
 // TODO: implement command line parsing
 // TODO: implement testing
 // TODO: create a stable binary
-
+// TODO: error handling
 // Import stuff
 #include <stdio.h>
 #include <stdlib.h>
@@ -90,6 +90,28 @@ u_int8_t process_num(char *line) {
     return length - 1;
 }
 
+// Makes sure there are no errors
+int8_t validate_num(char *line, char *file_name, int line_no) {
+    // There cannot be two digit numbers (rog only supports digit by digit)
+    if (strlen(line) > 10) {
+        printf("%s line %i:\n", file_name, line_no);
+        printf("    %s\n", line);
+        printf("    Too many + signs\n")
+        return ROG_ERROR;
+    }
+
+    // Notice how the "*" is missing
+    char *rest_of_chars = "~!@#$%^&()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+
+    for (int i=0; i<strlen(rest_of_chars); i++) {
+        // This means that there are other characters other than "*"
+        if (strchr(line, rest_of_chars[i] != NULL)) {
+            return ROG_ERROR;
+        }
+    }
+}
+
+
 // Based on the number of +, it returns 
 // a specific letter of the English alphabet
 char process_char(char *line, bool is_upper) {
@@ -121,6 +143,9 @@ int main() {
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
+    // It has to start with 1
+    size_t line_number = 1;
+
     bool is_upper = false;
 
     file_pointer = fopen("hello_world.rg", "r");
@@ -133,6 +158,7 @@ int main() {
 
     // Read the file line by line and print it out
     while ((read = getline(&line, &len, file_pointer) != EOF)) {
+        printf("Line Number: %li", line_number);
         line = strtok(line, "\n"); // remove newline character
 
         // If the line is meant to print a letter of the alphabet
@@ -153,11 +179,9 @@ int main() {
         if (strchr(line, '/') != NULL) {
             printf("%c", process_symbol(line));
         }
-    }
 
-    char symbol = process_char("c+++++++++++++++", true);
-    printf("This is letter %c\n", symbol);
-    fclose(file_pointer);
+        line_number++;
+    }
 
     if (line) {
         free(line);
