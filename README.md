@@ -9,7 +9,7 @@ You should use it (actually you probably shouldn't) for impressing your friends.
 
 ### Features
 - Simple (it has literally only one job)
-- Fast(ish) (uses `fopen` to interpret)
+- Fast(ish) (uses `fopen` for buffered FileIO)
 - Small and simple to understand docs (really because it is so simple)
 - Interpreted (will probably implement a compiler sometime)
 
