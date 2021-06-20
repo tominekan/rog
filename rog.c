@@ -130,7 +130,7 @@ int8_t validate_num(char *line, char *file_name, int line_no) {
     }
 
     // All the supported characters other than 1
-    char *rest_of_chars = "~!@#$%^&*()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+    char *rest_of_chars = "~!@#$%^&()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
     for (int i=0; i<strlen(rest_of_chars); i++) {
         // This means that there are other characters other than "*"
@@ -159,7 +159,7 @@ char process_char(char *line, bool is_upper) {
 
 int8_t validate_char(char *line, char *file_name, int line_no, bool is_upper) {
     // There cannot be more than 26 letters letters in the alphabet
-    char *rest_of_chars = "~!@#$%^&*()_{}|:*\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+    char *rest_of_chars = "~!@#$%^&()_{}|:*\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     if (is_upper) {
         if (strlen(line) > 27) { // Account for the c in the beginning
             error_print(file_name, line, "Too many \"+\"'s. Max is 26.\n", line_no);
@@ -191,9 +191,30 @@ char process_symbol(char *line) {
     return symbol;
 }
 
-char validate_symbol() {
+int8_t validate_symbol(char *line, char *file_name, int line_no) {
+    char *rest_of_chars = "~!@#$%^&*()_+{}|:\"<>?`-=[]\\;',.\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+    for (int i=0; i<strlen(rest_of_chars); i++) {
+        // This means that there are other characters other than numeric characters and a "/"
+        if (strchr(line, rest_of_chars[i]) != NULL) {
+            error_print(file_name, line, "Extra character type, expected only /'s or numeric characters", line_no);
+            return ROG_ERROR;
+        }
+    }
 
+    // There cannot be less than 2 chatacters in a single line
+    if (strlen(line) < 2) {
+        error_print(file_name, line, "No numbers after the \"/\" symbol", line_no);
+        return ROG_ERROR;
+    }
+
+    // Indexing starts with 0
+    // There are 35 characters supported
+    if (atoi(strtok(line, "/")) > 34) {
+        error_print(file_name, line, "Number connot be more than 34", line_no);
+        return ROG_ERROR;
+    }
 }
+
 int main() {
     FILE *file_pointer;
     char *line = NULL;
@@ -242,6 +263,10 @@ int main() {
         }
 
         if (strchr(line, '/') != NULL) {
+            if (validate_symbol(line, file_name, line_number) == ROG_ERROR) {
+                return ROG_ERROR;
+            }
+
             printf("%c", process_symbol(line));
         }
 
