@@ -9,7 +9,7 @@ build: rog.c
 run: rog
 	./rog
 
-# Build and debugs with gdb
+# Builds and debugs the code
 debug: rog.c
-	gcc rog.c -g -o rog
-	./rog
+	gcc -g rog.c -o rog
+	gdb ./rog
