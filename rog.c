@@ -93,17 +93,6 @@ const char ALPHABET[27] = {
 
 char *ALL_SUPPORTED_CHARACTERS = "~!@#$%^&*()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
-// Removes certain characters from a given string
-char *remove_from_string(char *string, char *chars_to_remove) {
-    // Make a copy so that the original version is not affected
-    char *final_result = "";
-    printf("This runs");
-    for (int i=0; i<strlen(string); i++) {
-        // Checks if the current item is not part of the characters to remove
-        // If so, then that character is added to final_result
-        printf("This runs");
-    }
-}
 
 // Prints the error message in a nice format
 void error_print(char *file_name, char *line_content, char *error_message, int line_no) {
