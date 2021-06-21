@@ -1,4 +1,3 @@
-// TODO: implement command line parsing
 // TODO: implement testing
 // TODO: create a stable binary
 
@@ -9,8 +8,9 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-// Error definitions
+// Custom definitions
 #define ROG_ERROR -1
+#define ROG_VERSION "1.1.0"
 
 // Color sequences 
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -215,23 +215,22 @@ int8_t validate_symbol(char *line, char *file_name, int line_no) {
     }
 }
 
-int main() {
+// Runs through and interprets the file line by line
+void execute_file(char *file_name) {
     FILE *file_pointer;
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    // It has to start with 1
+    // There cannot be a file with 0 lines
     size_t line_number = 1;
-
     bool is_upper = false;
-    char *file_name = "hello_world.rg";
 
     file_pointer = fopen(file_name, "r");
 
     // Error handling
     if (file_pointer == NULL) {
         printf("Failed to read file.\n");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     // Read the file line by line and print it out
@@ -243,12 +242,12 @@ int main() {
             // If the given code is upper case, process it as such.
             if (line[0] == 'c') { 
                 if (validate_char(line, file_name, line_number, true) == ROG_ERROR) {
-                    return ROG_ERROR;
+                    exit(EXIT_FAILURE);
                 }
                 printf("%c", process_char(line, true));
             } else { // If lower case, process it as such
                 if (validate_char(line, file_name, line_number, false) == ROG_ERROR) {
-                    return ROG_ERROR;
+                    exit(EXIT_FAILURE);
                 }
                 printf("%c", process_char(line, false));
             }
@@ -257,14 +256,14 @@ int main() {
         // If the line is meant to print a number
         if (strchr(line, '*') != NULL) {
             if (validate_num(line, file_name, line_number) == ROG_ERROR) {
-                return ROG_ERROR;
+                exit(EXIT_FAILURE);
             }
             process_num(line);
         }
 
         if (strchr(line, '/') != NULL) {
             if (validate_symbol(line, file_name, line_number) == ROG_ERROR) {
-                return ROG_ERROR;
+                exit(EXIT_FAILURE);
             }
 
             printf("%c", process_symbol(line));
@@ -275,5 +274,34 @@ int main() {
 
     if (line) {
         free(line);
+    }    
+}
+
+void print_help() {
+    printf("USAGE: rog [FLAGS] [FILES...]");
+    printf("[FLAGS]\n");
+    printf("--version, -v    --    Prints current rog version\n");
+    printf("--help, -h       --    Prints the help page\n\n");
+    printf("Raise complaints (cause I know you have them) here: https://github.com/tominekan/rog/issues\n");
+    printf("Check out the source code here: https://github.com/tominekan/rog\n");
+    printf("Feel free to contribute.\n");
+}
+
+void process_argument(char *argument) {
+    if (!strcmp(argument, "--help") || !strcmp(argument, "-h")) {
+        print_help();
+        exit(EXIT_SUCCESS);
+    } else if (!strcmp(argument, "--version") || !strcmp(argument, "-v")) {
+        printf("rog v%s", ROG_VERSION);
+        exit(EXIT_SUCCESS);
+    } else {
+        execute_file(argument);
+        exit(EXIT_SUCCESS);
+    }
+}
+
+int main(int argc, char **argv) {
+    for (int i=1; i<argc; i++) {
+        process_argument(argv[i]);
     }
 }
