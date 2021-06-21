@@ -13,6 +13,7 @@ static char* test_process_num() {
     mu_assert("    Error! process_num(\"*\") != 9\n", equal_to_zero == 0);
     mu_assert("    Error! process_num(\"**********\") != 9\n", equal_to_nine == 9);
     mu_assert("    Error! process_num(\"******\") != 5\n", equal_to_five == 5);
+    return 0;
 }
 
 static char* test_process_char() {
@@ -34,4 +35,16 @@ static char* test_process_char() {
     mu_assert("    Error! process_char(\"+\", is_upper=true) != a", equal_to_A == 'A');
     mu_assert("    Error! process_char(\"++\", is_upper=true) != a", equal_to_B == 'B');
     mu_assert("    Error! process_char(\"++++++++++++++++++++++++++\", is_upper=true) != a", equal_to_Z == 'Z');
+    return 0;
+}
+
+static char *test_process_symbol() {
+    char equal_to_underscore = process_symbol("/15");
+    char equal_to_space = process_symbol("/0");
+    char equal_to_back_slash = process_symbol("/34");
+    printf("Testing process_symbol(); ...\n");
+    mu_assert("    Error! process_symbol(\"/15\") != _ (underscore)\n", equal_to_underscore == "_");
+    mu_assert("    Error! process_symbol(\"/0\") !=   (space)\n", equal_to_space == " ");
+    mu_assert("    Error! process_symbol(\"/34\") != \\ (back slash)\n", equal_to_back_slash == "\\");
+    return 0;
 }
