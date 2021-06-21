@@ -278,8 +278,8 @@ void execute_file(char *file_name) {
 }
 
 void print_help() {
-    printf("USAGE: rog [FLAGS] [FILES...]");
-    printf("[FLAGS]\n");
+    printf("USAGE: rog [FLAG] or [FILE]\n");
+    printf("Possible [FLAGS]:\n");
     printf("--version, -v    --    Prints current rog version\n");
     printf("--help, -h       --    Prints the help page\n\n");
     printf("Raise complaints (cause I know you have them) here: https://github.com/tominekan/rog/issues\n");
