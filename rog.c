@@ -1,7 +1,7 @@
 // TODO: implement command line parsing
 // TODO: implement testing
 // TODO: create a stable binary
-// TODO: error handling
+
 // Import stuff
 #include <stdio.h>
 #include <stdlib.h>
