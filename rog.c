@@ -61,36 +61,7 @@ const char SPECIAL_CHARS[36] = {
     '\0'
 };
 
-const char ALPHABET[27] = {
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-    '\0'
-};
-
+const char ALPHABET[27] = "abcdefghiklmnopqrstuvwxyz";
 char *ALL_SUPPORTED_CHARACTERS = "~!@#$%^&*()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
 
@@ -128,6 +99,8 @@ int8_t validate_num(char *line, char *file_name, int line_no) {
             return ROG_ERROR;
         }
     }
+
+    return 0;
 }
 
 
@@ -166,6 +139,8 @@ int8_t validate_char(char *line, char *file_name, int line_no, bool is_upper) {
             return ROG_ERROR;
         }
     }
+
+    return 0;
 }
 
 // Takes the number from the /number and 
@@ -202,6 +177,8 @@ int8_t validate_symbol(char *line, char *file_name, int line_no) {
         error_print(file_name, line, "Number connot be more than 34", line_no);
         return ROG_ERROR;
     }
+
+    return 0;
 }
 
 // Runs through and interprets the file line by line
@@ -212,7 +189,7 @@ void execute_file(char *file_name) {
     ssize_t read;
     // There cannot be a file with 0 lines
     size_t line_number = 1;
-    bool is_upper = false;
+
 
     file_pointer = fopen(file_name, "r");
 
