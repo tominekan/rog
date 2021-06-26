@@ -22,47 +22,8 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 // These are a list of all the special characters
-const char SPECIAL_CHARS[36] = {
-    ' ',
-    '\t',
-    '\n',
-    '~',
-    '!',
-    '@',
-    '#',
-    '$',
-    '%',
-    '^',
-    '&',
-    '(',
-    ')',
-    '`',
-    '*',
-    '_',
-    '+',
-    '-',
-    '=',
-    '{',
-    '}',
-    '|',
-    '[',
-    ']',
-    ':',
-    '"',
-    ';',
-    '\'',
-    '<',
-    '>',
-    ',',
-    '.',
-    '?',
-    '/',
-    '\\',
-    '\0'
-};
-
-const char ALPHABET[27] = "abcdefghiklmnopqrstuvwxyz";
-char *ALL_SUPPORTED_CHARACTERS = "~!@#$%^&*()_+{}|:\"<>?`1234567890-=[]\\;',./\n\t qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+static const char SPECIAL_CHARS[36] = " \t\n~!@#$%^&()`*_+-={}|[]:\";'<>,.?/\\";
+static const char ALPHABET[27] = "abcdefghiklmnopqrstuvwxyz";
 
 
 // Prints the error message in a nice format
