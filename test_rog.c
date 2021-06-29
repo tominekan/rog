@@ -30,12 +30,12 @@ void test_setup(void) {
     equal_to_nine = process_num("**********");
     equal_to_five = process_num("******");
 
-    // Test for capital letters
+    // Test for lowercase letters
     equal_to_a = process_char("+", false);
     equal_to_b = process_char("++", false);
     equal_to_z = process_char("++++++++++++++++++++++++++", false);
 
-    // Test for lowercase letters
+    // Test for uppercase letters
     equal_to_A = process_char("+", true); // equivalent to c+
     equal_to_B = process_char("++", true); // equivalent to c++, but we don't do that here
     equal_to_Z = process_char("++++++++++++++++++++++++++", true); // equivalent to c++++++++++++++++++++++++++
