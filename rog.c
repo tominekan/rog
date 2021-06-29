@@ -204,6 +204,7 @@ void execute_file(char *file_name) {
     }    
 }
 
+// Prints help page
 void print_help() {
     printf("USAGE: rog [FLAG] or [FILE]\n");
     printf("Possible [FLAGS]:\n");
@@ -214,6 +215,8 @@ void print_help() {
     printf("Feel free to contribute.\n");
 }
 
+// TODO: get rid of this crap
+// Im
 void process_argument(char *argument) {
     if (!strcmp(argument, "--help") || !strcmp(argument, "-h")) {
         print_help();
