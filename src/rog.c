@@ -229,9 +229,3 @@ void process_argument(char *argument) {
         exit(EXIT_SUCCESS);
     }
 }
-
-int main(int argc, char **argv) {
-    for (int i=1; i<argc; i++) {
-        process_argument(argv[i]);
-    }
-}

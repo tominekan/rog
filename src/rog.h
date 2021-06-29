@@ -25,5 +25,5 @@ void execute_file(char *file_name);
 
 void print_help();
 
-void process_argument();
+void process_argument(char *argument);
 #endif

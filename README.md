@@ -48,7 +48,7 @@ Now that you have the information, try typing `"Hello, World!"`, don't forget th
 
 
 
-Feeling stuck (that's the point)? Try this!
+Feeling stuck ~~well, that's the point~~? Try this!
 ```
 c++++++++
 +++++
