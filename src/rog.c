@@ -23,7 +23,7 @@
 
 // These are a list of all the special characters
 static const char SPECIAL_CHARS[36] = " \t\n~!@#$%^&()`*_+-={}|[]:\";'<>,.?/\\";
-static const char ALPHABET[27] = "abcdefghiklmnopqrstuvwxyz";
+static const char ALPHABET[27] = "abcdefghijklmnopqrstuvwxyz";
 
 
 // Prints the error message in a nice format
@@ -216,7 +216,7 @@ void print_help() {
 }
 
 // TODO: get rid of this crap
-// Im
+// Processes each argument
 void process_argument(char *argument) {
     if (!strcmp(argument, "--help") || !strcmp(argument, "-h")) {
         print_help();

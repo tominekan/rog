@@ -9,7 +9,7 @@ FLAGS=-Wall -g
 # and assembling, but not linking
 TEST_FLAGS=-lrt -lm -c
 
-all: build run
+all: build run clean
 
 build: rog.c
 	gcc $(FLAGS) src/main.c -o rog
