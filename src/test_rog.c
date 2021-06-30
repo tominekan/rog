@@ -34,6 +34,7 @@ void test_setup(void) {
     equal_to_a = process_char("+", false);
     equal_to_b = process_char("++", false);
     equal_to_z = process_char("++++++++++++++++++++++++++", false);
+	printf("equal_to_z: %c\n", equal_to_z);
 
     // Test for uppercase letters
     equal_to_A = process_char("+", true); // equivalent to c+
