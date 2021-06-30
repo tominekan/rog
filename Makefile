@@ -12,7 +12,7 @@ TEST_FLAGS=-lrt -lm -c
 all: build run
 
 build: rog.c
-	gcc $(FLAGS) rog.c -o rog
+	gcc $(FLAGS) src/main.c -o rog
 
 run: rog
 	./rog
@@ -21,12 +21,14 @@ run: rog
 debug: build
 	gdb ./rog
 
-test: test_rog.c
-	gcc $(TEST_FLAGS) test_rog.c
-	gcc $(TEST_FLAGS) rog.c
+# Build and test the code
+test: src/test_rog.c src/rog.c
+	gcc $(TEST_FLAGS) src/test_rog.c
+	gcc $(TEST_FLAGS) src/rog.c
 	gcc test_rog.o rog.o -o test_rog
 	./test_rog
 
 # Remove all .o files
 clean:
 	rm -rfv *.o
+	rm -rfv test_rog
