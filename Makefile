@@ -1,5 +1,7 @@
 CC=gcc
 DEBUGGER=gdb
+BINDIR=build
+OBJDIR=obj
 
 # Enables all compiler warnings for C
 # and enables it to be debugged by gdb
@@ -13,7 +15,7 @@ TEST_FLAGS=-lrt -lm -c
 all: build
 
 build: src/rog.c src/main.c src/rog.h
-	gcc $(FLAGS) src/rog.c -o target/rog.o
+	gcc $(FLAGS) src/rog.c -o obj/rog.o
 	gcc $(FLAGS) src/main.c -o target/main.o
 	gcc target/*.o -o rog
 
