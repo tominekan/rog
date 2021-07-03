@@ -1,36 +1,10 @@
-CC=gcc
-DEBUGGER=gdb
-BINDIR=build
+SRCDIR=src
 OBJDIR=obj
+CC=gcc
+CFLAGS=-Wall -g -lrt -lm
+OBJS=$(OBJDIR)/main.o $(OBJDIR)/rog.o $(OBJDIR)/test_rog.o
 
-# Enables all compiler warnings for C
-# and enables it to be debugged by gdb
-# -c for compiling to object files
-FLAGS=-Wall -g -c
+$(SRCDIR)%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# -lrt for timer and -lm for math -c for compiling
-# and assembling, but not linking
-TEST_FLAGS=-lrt -lm -c
-
-all: build
-
-build: src/rog.c src/main.c src/rog.h
-	gcc $(FLAGS) src/rog.c -o obj/rog.o
-	gcc $(FLAGS) src/main.c -o target/main.o
-	gcc target/*.o -o rog
-
-# Build and debug the code
-debug: build
-	gdb ./rog
-
-# Build and test the code
-test: src/test_rog.c src/rog.c
-	gcc $(TEST_FLAGS) src/test_rog.c -o target/test_rog.o
-	gcc $(TEST_FLAGS) src/rog.c -o target/rog.o
-	gcc target/*.o -o build/test_rog
-	./build/test_rog
-
-# Remove all .o files
-clean:
-	rm -rfv target/*.o
-	rm -rfv test_rog
+all: $(OBJS)
