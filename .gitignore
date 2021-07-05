@@ -1,5 +1,5 @@
 .vscode
 # Ignore the directory containing object files
 obj
-# Ignore the directory object files
-build
+# Ignore the build directory
+bin
