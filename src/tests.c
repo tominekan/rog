@@ -34,18 +34,19 @@ void test_setup(void) {
     equal_to_a = process_char("+", false);
     equal_to_b = process_char("++", false);
     equal_to_z = process_char("++++++++++++++++++++++++++", false);
-	printf("equal_to_z: %c\n", equal_to_z);
 
     // Test for uppercase letters
-    equal_to_A = process_char("+", true); // equivalent to c+
-    equal_to_B = process_char("++", true); // equivalent to c++, but we don't do that here
-    equal_to_Z = process_char("++++++++++++++++++++++++++", true); // equivalent to c++++++++++++++++++++++++++
+    equal_to_A = process_char("c+", true);
+    equal_to_B = process_char("c++", true); // we don't do that here
+    equal_to_Z = process_char("c++++++++++++++++++++++++++", true);
+    printf("equal_to_A: %c\n", equal_to_A);
 
     // Test for special characters (symbols)
     equal_to_underscore = process_symbol("/15");
     equal_to_space = process_symbol("/0");
     equal_to_back_slash = process_symbol("/34");
 }
+
 void test_teardown(void) {
     // Nothing
     ;

@@ -12,7 +12,7 @@
 #define ROG_ERROR -1
 #define ROG_VERSION "1.1.0"
 
-// Color sequences 
+// Color sequences
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -34,7 +34,7 @@ void error_print(char *file_name, char *line_content, char *error_message, int l
     printf(ANSI_COLOR_BLUE "    %s" ANSI_COLOR_RESET, error_message);
 }
 
-// Returns the corresponding number based on the 
+// Returns the corresponding number based on the
 // number of '*' characters in the line
 u_int8_t process_num(char *line) {
     size_t length = strlen(line);
@@ -65,12 +65,12 @@ int8_t validate_num(char *line, char *file_name, int line_no) {
 }
 
 
-// Based on the number of +, it returns 
+// Based on the number of +, it returns
 // a specific letter of the English alphabet
 char process_char(char *line, bool is_upper) {
     size_t line_length = strlen(line);
     if (is_upper == true) {
-        // -1 to account for the c in front of the legion of +'s
+        // -1 to account for the c in front
         // -1 to account for zero based indexing
         return toupper(ALPHABET[line_length-2]);
     } else {
@@ -87,7 +87,7 @@ int8_t validate_char(char *line, char *file_name, int line_no, bool is_upper) {
         if (strlen(line) > 27) { // Account for the c in the beginning
             error_print(file_name, line, "Too many \"+\"'s. Max is 26.\n", line_no);
             return ROG_ERROR;
-        }  
+        }
     } else if (strlen(line) > 26) {
         error_print(file_name, line, "Too many \"+\"s. Max is 26.\n", line_no);
         return ROG_ERROR;
@@ -104,7 +104,7 @@ int8_t validate_char(char *line, char *file_name, int line_no, bool is_upper) {
     return 0;
 }
 
-// Takes the number from the /number and 
+// Takes the number from the /number and
 // return's it's character representation
 char process_symbol(char *line) {
     // Collect the number from the string
@@ -167,7 +167,7 @@ void execute_file(char *file_name) {
         // If the line is meant to print a letter of the alphabet
         if (strchr(line, '+') != NULL) {
             // If the given code is upper case, process it as such.
-            if (line[0] == 'c') { 
+            if (line[0] == 'c') {
                 if (validate_char(line, file_name, line_number, true) == ROG_ERROR) {
                     exit(EXIT_FAILURE);
                 }
@@ -201,7 +201,7 @@ void execute_file(char *file_name) {
 
     if (line) {
         free(line);
-    }    
+    }
 }
 
 // Prints help page
