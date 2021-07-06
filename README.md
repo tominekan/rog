@@ -3,13 +3,13 @@ Your go to esoteric programming language.
 - [Why](#why)
 - [But Why?](#but-why)
 - [Features](#features)
-- [You probably shouldn't use this for](#you-probably-shouldnt-use-it-for)
+- [Limitations](#limitations)
 - [Installation](#installation)
 - [Tutorial](#tutorial)
 
 
 ### Why?
-This was just to practice my C and build good coding [habits](https://www.youtube.com/watch?v=dQw4w9WgXcQ). This means that I will probably not work on it past the first version.
+This was just to practice my Clanguage skills and build good coding [habits](https://www.youtube.com/watch?v=dQw4w9WgXcQ). This means that I will probably not work on it past the first version.
 
 ### But Why?
 You should use it (actually you probably shouldn't) for impressing your friends.
@@ -20,7 +20,7 @@ You should use it (actually you probably shouldn't) for impressing your friends.
 - Small and easy to understand docs (really because it is so simple)
 - Interpreted (no build systems needed for this project)
 
-### You probably shouldn't use it for ...
+### Limitations
 - Scalable programs (this thing **does not** _scale_)
 - Easy to understand programs (this is pretty esoteric)
 - Anything involving basic logic (it has _only one_ job)
