@@ -6,6 +6,9 @@ COMPILE_FLAGS=-Wall -lrt -lm -c
 MAIN_OBJECTS=$(OBJDIR)/main.o $(OBJDIR)/rog.o
 TEST_OBJECTS=$(OBJDIR)/tests.o $(OBJDIR)/rog.o
 
+# Build the main and test files (and run the test)
+all: build test run_tests
+
 $(OBJDIR)/main.o: $(SRCDIR)/main.c $(SRCDIR)/rog.h
 	mkdir -p $(OBJDIR)
 	$(CC) $(COMPILE_FLAGS) $(SRCDIR)/main.c -o $(OBJDIR)/main.o
@@ -28,8 +31,9 @@ test: $(TEST_OBJECTS)
 	mkdir -p $(BUILDDIR)
 	$(CC) -g $(TEST_OBJECTS) -o $(BUILDDIR)/tests
 
-# Build the main and test files
-all: build test
+run_tests: test
+	./bin/tests
+
 
 clean:
 	rm -rfv $(OBJDIR)
