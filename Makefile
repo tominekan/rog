@@ -1,7 +1,11 @@
+# You can change the compiler to something like clang
+# by replacing the default value gcc, with something like clang
+# e.g.
+# CC=clang
+CC=gcc
 SRCDIR=src
 OBJDIR=obj
 BUILDDIR=bin
-CC=gcc
 COMPILE_FLAGS=-Wall -lrt -lm -c
 MAIN_OBJECTS=$(OBJDIR)/main.o $(OBJDIR)/rog.o
 TEST_OBJECTS=$(OBJDIR)/tests.o $(OBJDIR)/rog.o
