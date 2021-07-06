@@ -34,6 +34,5 @@ test: $(TEST_OBJECTS)
 run_tests: test
 	./bin/tests
 
-
 clean:
 	rm -rfv $(OBJDIR)
