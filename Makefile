@@ -28,7 +28,7 @@ $(OBJDIR)/tests.o: $(SRCDIR)/tests.c $(SRCDIR)/minunit.h $(SRCDIR)/rog.h
 # Build the main files
 build: $(MAIN_OBJECTS)
 	mkdir -p $(BUILDDIR)
-	$(CC) -g $(MAIN_OBJECTS) -o $(BUILDDIR)/main
+	$(CC) -g $(MAIN_OBJECTS) -o $(BUILDDIR)/rog
 
 # Build the test files
 test: $(TEST_OBJECTS)
