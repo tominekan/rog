@@ -38,5 +38,11 @@ test: $(TEST_OBJECTS)
 run_tests: test
 	./bin/tests
 
+# Installs to /usr/local/bin by default,
+# to change this, replace /usr/local/bin to whatever 
+# directory you want to install rog to
+install:
+	install bin/rog /usr/local/bin
+
 clean:
 	rm -rfv $(OBJDIR)
