@@ -9,7 +9,7 @@ Your go to esoteric programming language.
 
 
 ### Why?
-This was just to practice my Clanguage skills and build good coding [habits](https://www.youtube.com/watch?v=dQw4w9WgXcQ). This means that I will probably not work on it past the first version.
+This was just to practice my C language skills and build good coding [habits](https://www.youtube.com/watch?v=dQw4w9WgXcQ). This means that I will probably not work on it past the first version.
 
 ### But Why?
 You should use it (actually you probably shouldn't) for impressing your friends.
